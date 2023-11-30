@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selec</title>
+    <style>
+        /* Стили для локаций в Красноярском крае */
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  
+}
+        .Красноярскийкрай, .Алтайскийкрай {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+button {
+  background-color: lightgrey;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+     
+        .Красноярскийкрай-hidden {
+            visibility: hidden;
+            
+        }
+
+        
+        .Алтайскийкрай-hidden {
+            visibility: hidden;
+        }
+        #locations {
+            display: flex;
+            flex-direction: column;
+            
+        }
+        #content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button{
+            border: none;
+        }
+        /* Другие стили, если необходимо */
+    </style>
+</head>
+<body>
+    <div id="selectedDate"></div>
+    <div id="region"></div>
+    <div id="locations">
+        <div id="content">
+
+        </div>
+    </div>
+    <div id="favorites"></div>
+
+    <script type="text/javascript">
+        let selectedDate = localStorage.getItem('date');
+        let regionValue = localStorage.getItem('region');
+        let peopleInput = localStorage.getItem('people');
+
+        let favorites = [];
+
+        var dateElement = document.getElementById('selectedDate');
+        var regionElement = document.getElementById('region');
+        var locationsElement = document.getElementById('locations');
+        var favoritesElement = document.getElementById('favorites');
+        let contentDiv = document.getElementById('content');
+        console.log('Read data from localStorage:', selectedDate, regionValue,peopleInput);
+
+        
+       
+    
+
+        window.onload = function(){
+          
+           
+            // Пример данных о локациях
+            var locationsData = [
+                {
+                    region: "Красноярский край",
+                    name: "Парк-отель Чайка",
+                    address: "Ачинский район, с. Ключи, Пионерская долина, 5",
+                    availableZones: 5,
+                },
+                
+                {
+                    region: "Алтайский край",
+                    name: "Туристическая база Озеро Красилово",
+                    address: "Косихинский район, с. Озеро-Красилово, ул. Пушкина д.1",
+                    availableZones: 5,
+                }
+                // Добавьте данные для других локаций, если необходимо
+            ];
+
+            // Установка данных в localStorage
+            localStorage.setItem('date', selectedDate);
+            localStorage.setItem('region', regionValue);
+            localStorage.setItem('people', peopleInput);
+
+
+            // Вывод информации о локациях
+            locationsData.forEach(function(locationInfo) {
+                // Создание div для каждой локации
+                var locationDiv = document.createElement('div');
+                locationDiv.classList.add(locationInfo.region.replace(/\s/g, ''));
+
+                locationDiv.innerHTML += '<h2>Регион: ' + locationInfo.region + '</h2>';
+                locationDiv.innerHTML += '<p>Наименование и адрес локации: ' + locationInfo.name + ', ' + locationInfo.address + '</p>';
+                locationDiv.innerHTML += '<p>Дата: ' + selectedDate + '</p>';
+                locationDiv.innerHTML += '<p>Количество свободных зон: ' + locationInfo.availableZones + '</p>';
+                locationDiv.innerHTML += '<button onclick="addToFavorites(\'' + locationInfo.region + '\', \'' + locationInfo.name + '\', ' + locationInfo.availableZones + ')">Добавить в избранное</button>';
+                locationDiv.innerHTML += '<button onclick="selectZone(\'' + locationInfo.region + '\', \'' + locationInfo.name + '\')">Выбрать зону</button>';
+                contentDiv.appendChild(locationDiv);
+                locationsElement.appendChild(contentDiv);
+            });
+           
+            displayFavorites();
+
+            window.addToFavorites = function(region, name, availableZones) {
+                if (!isLocationInFavorites(region, name)) {
+                    favorites.push({ region: region, name: name, availableZones: availableZones });
+                    displayFavorites();
+                } else {
+                    alert('Эта локация уже в избранном.');
+                }
+            };
+
+            window.selectZone = function(region, name) {
+                window.location.href = 'seat.html?region=' + encodeURIComponent(region) + '&name=' + encodeURIComponent(name);
+              
+            };
+
+            function isLocationInFavorites(region, name) {
+                for (var k = 0; k < favorites.length; k++) {
+                    if (favorites[k].region === region && favorites[k].name === name) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function displayFavorites() {
+                favoritesElement.innerHTML = '<h3>Избранное:</h3>';
+                for (var k = 0; k < favorites.length; k++) {
+                    favoritesElement.innerHTML += '<p>' + favorites[k].name + ' в регионе ' + favorites[k].region + ' с ' + favorites[k].availableZones + ' свободными зонами</p>';
+                }
+            }
+            const Krasnoyarsk = document.querySelector('.Красноярскийкрай');
+            const Altai = document.querySelector('.Алтайскийкрай');
+            if(regionValue === 'Красноярский край'){
+                Altai.classList.add('Алтайскийкрай-hidden');
+            
+            }
+            if(regionValue === 'Алтайский край'){
+                Krasnoyarsk.classList.add('Красноярскийкрай-hidden');
+                
+            }
+            
+        };
+        
+    </script>
+</body>
+</html>
