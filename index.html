@@ -62,6 +62,7 @@
             margin-bottom: 10px;
         }
         .container-img img {
+            height: 80%;
             width: 100%;
             border-radius: 8px;
             margin-bottom: 10px;
@@ -69,6 +70,7 @@
         
         .reviews {
             display: flex;
+            flex-direction: column;
             justify-content: space-around;
             align-items: center;
             padding: 20px;
@@ -84,7 +86,6 @@
             margin-bottom: 20px;
         }
         .con-search {
-        background-image: url('backfon.jpg');
         background-size: cover;
         padding: 20px;
         border-radius: 10px;
@@ -93,7 +94,7 @@
     }
     h2 {
         font-size: 28px;
-        color: #fff;
+        color: rgb(0, 0, 0);
         margin-bottom: 20px;
     }
     form {
@@ -127,6 +128,14 @@
     }
     button:hover {
         background-color: #cc372d;
+       
+           
+        
+        
+            transform: scale(1.2);
+            transition-duration: 250ms;
+           
+        
     }
     
       @font-face {
@@ -181,7 +190,10 @@
             text-decoration: none;
             color: #444;
         }
-      
+        
+        .reviews-containe{
+            background-color: rgba(128, 128, 128, 0.165);
+        }
       </style>
        
        <title>Праздник в каждый дом</title>
@@ -192,93 +204,75 @@
         <ul class="container">
             <li class="frst"><a href="#promotions">Акции</a></li>
             <li class="scnd"><a href="#con-search">Поиск</a></li>
-            <li><a href="#podval">О нас</a></li>
+            <li><a href="#reviews">О нас</a></li>
             <li class="Booking"><a href="booking.html">Бронирование</a></li>
 
             
          </ul>
  </navbar>
   </header>
-  <section class="actions">
-    <!-- Блок с акциями -->
-    <div class="promotions" id="promotions" style="display:flex;">
-     
-        <br>
-        <div class="container-img">
-            <div class="top">
-                <div class="imgontxt1">
-                    <h2>Скидка до 60%. За заказ зоны (от 25 человек) в локации «Черная жемчужина»</h2>
-                    <img class="img_1" src="imgrom/promotion1.jpg" alt="1">
-                    <button onclick="toggleInfo('info1', 'img_1')">Показать/Скрыть полную информацию</button>
-                    <p id="info1" style="display: none;">Устали от городского шума, хотите провести праздник за городом в живописной локации? Заказывайте место в локации «Черная жемчужина». Здесь вас и ваших детей ждет настоящая пиратская шхуна с настоящими пиратами! Заказ от 25 до 30 человек: Скидка 40% на аренду при заказе в будний день. Заказ от 31 до 50 человек: Скидка 55% на аренду при заказе в будний день. Купон действует в будние дни при наличии свободных мест.</p>
-                </div>
-                
-              </div>
-              <div class="midle">
-                <div class="imgontxt2">
-                    <h2>Скидка до 51%. Уютное место для организации праздников «Поляна сказок»</h2>
-                    <img class="img_2" src="imgrom/promotion2.jpg" alt="2" style="height:520px;">
-                    <button onclick="toggleInfo('info2', 'img_2')">Показать/Скрыть полную информацию</button>
-                    <p id="info2" style="display: none;">Локация «Поляна сказок» расположена в живописной загородной местности на берегу чистого озера. Купон действует на следующие виды услуг: Скидка 51% для аренды зоны в локации «Поляна сказок» при условии заказа услуг аниматоров. Обязательна предварительная запись по телефону. Преимущества заказа именно этой локации: безопасность, мало людей, защита от насекомых, обустроенный тематический лагерь.</p>
-                </div>
-              </div>
-            <div class="botom">
-              <div class="imgontxt3">
-                <h2>Скидка до 25%. Закажи праздник "Под ключ"</h2>
-                <img class="img_3" src="imgrom/promotion3.jpg" alt="3">
-                <button onclick="toggleInfo('info3', 'img_3')">Показать/Скрыть полную информацию</button>
-                <p id="info3" style="display: none;">При выборе локации для 15 человек и больше, а также при заказе всех дополнительных услуг можно очень неплохо сэкономить! Купон действует на следующие виды услуг: Скидка 25% для органицации комплексного праздника для группы от 25 человек. Скидка 10% для органицации комплексного праздника для группы от 15 человек. Обязательна предварительная запись по телефону.</p>
-            </div>
-            </div>
-        </div>
-        
-    </div>
-</section>
-  <section class="company-info" >
+  
+  <section class="company-info">
   <!-- Информация о компании, девиз, отзывы -->
+  
   <h3>Чтобы воспользоваться услугами компании необходимо:</h3>
-  <p><strong>1. Выбрать даты праздника;</strong></p>
-  <p><strong>2. Выбрать количество участников;</strong></p>
-  <p><strong>3. Выбрать желаемую локацию для праздника, соответствующую условиям выше;</strong></p>
-  <p><strong>4. Зарезервировать конкретную зону на территории выбранной локации;</strong></p>
-  <p><strong>5. Определить перечень дополнительных услуг;</strong></p>
-  <p><strong>6. Оформить заказ.</strong></p>
+  <p>1.<strong>Выбрать даты праздника;</strong></p>
+  <p>2.<strong> Выбрать количество участников;</strong></p>
+  <p>3.<strong> Выбрать желаемую локацию для праздника, соответствующую условиям выше;</strong></p>
+  <p>4.<strong> Зарезервировать конкретную зону на территории выбранной локации;</strong></p>
+  <p>5.<strong> Определить перечень дополнительных услуг;</strong></p>
+  <p>6.<strong> Оформить заказ.</strong></p>
   <h1>«Праздник в каждый дом»</h1>
   <h4>Предоставляем услуги организации детских праздников на нашей территории в очень интересных локациях.</h4>
   <h4>Главная цель компании – сделать праздник незабываемым для детей и их родителей.</h4>
   <h4>Клиенты компании «Праздник в каждый дом» имеют возможность забронировать одну из предоставленных локаций для органицации детского праздника.<br> Помимо предоставления аренды помещения, компания предоставляет широкий спектр услуг, таких как: питание, услуги аниматоров, услуги ведущего, детского такси и т.д.</h4>
 </section>
-  <section class="reviews" >
+  <section class="reviews" id="reviews">
   <!--ОТЗЫВЫ-->
-  <div class="reviews-containe">
+  <h1 >ОТЗЫВЫ</h1>
+  <div class="reviews-containe" style="display:flex;">
 
+    <div style="margin: 4px;">
+        <h3 >
+          Светлана
+        </h3>
+        <img src="people/7.jpg" style="width:220px;height: 190px; border-radius:50%;">
+        <p >Спасибо большое!<br> Дети в бурных эмоция,<br> аниматор супер, даже взрослые участвовали, как это было все классно, энергично, здорово!
+          Успехов вам больших!</p>
+
+    </div>
     
-      <h3 >
-        Светлана
-      </h3>
-      <p >Спасибо большое! Дети в бурных эмоция, аниматор супер, даже взрослые участвовали, как это было все классно, энергично, здорово!
-        Успехов вам больших!</p>
+  
+    <div style="margin: 4px;" >
+        <img src="people/6.jpg" style="width:220px;height: 240px; border-radius:50%;">
+        <h3>Алена </h3>
+        <p  >Всё очень понравилось. 
+          Игры хорошие, аниматоры отличные, костюмы классные! Дети были восторге!!!</p>
+    </div>
     
+  <div style="margin: 4px;">
+    <img src="people/5.jpg" style="width:220px;height: 190px; border-radius:50%;">
+    <h3>Марина </h3>
+    <p>ДР ребенка 3 года, аниматоры молодцы, все очень хорошо подготовили! <br>
+        Крош отработал на 5, все дети в восторге! Шоу мыльных пузырей с погружением чудесное и волшебное!<br> Детям хотелось немного больше контакта с пузырями!<br>
+        Ребят, только на счет подарка в конце шоу оговаривайте с родителями! Иногда шоколад маленьким детям дарить не стоит !</p>
+  </div>
   
-    
-    <h3>Алена </h3>
-    <p  >Всё очень понравилось. 
-      Игры хорошие, аниматоры отличные, костюмы классные! Дети были восторге!!!</p>
-  
-  
-  
-    <h3>Наталия </h3>
-      <p>Уже не первый раз заказываем праздник у вас, как всегда вы огромные специалисты и мастера своего дела! 
-        Отлично всё: от приёма заказа, до финала праздника. Удачи и до новых встреч!!</p>
+  <div style="margin: 4px;">
+    <img src="people/9.jpg" style="width:220px;height: 190px; border-radius:50%;">
+      <h3>Наталия </h3>
+        <p>Уже не первый раз заказываем праздник у вас,<br> как всегда вы огромные специалисты и мастера своего дела! 
+          Отлично всё: от приёма заказа, до финала праздника. Удачи и до новых встреч!!</p>
+  </div>
   </div>  
   
 </section>
   
   
 
-    <section class="search">
+    <section class="search" >
       <!-- Форма поиска -->
-      <div class="con-search" id="con-search" style="height: auto; background-image:url('backfon.jpg') ;">
+      <div class="con-search" id="con-search" style="height: auto;">
         <h2>Поиск</h2>
         <form id="searchForm">
             <label for="region">Регион:</label>
@@ -290,7 +284,7 @@
             <input type="date" id="date" name="date">
   
             <label for="people">Количество людей:</label>
-            <input type="number" id="people" name="people" min="1">
+            <input type="number" id="people" name="people" placeholder="Кол-во чеовек (макс. 50 человек)" min="1">
   
             <button type="button" onclick="search()">Найти</button>
   
@@ -298,8 +292,54 @@
         </form>
     </div>
     </section>
-   
-
+    <section class="actions">
+        <!-- Блок с акциями -->
+        <div class="promotions" id="promotions" style="display:flex;">
+         
+            <br>
+            <div class="container-img">
+                <div class="top" >
+                    <div class="imgontxt1" >
+                        <h2>Скидка до 60%. За заказ зоны (от 25 человек) в локации «Черная жемчужина»</h2>
+                        <img  class="img_1" src="imgrom/promotion1.jpg" alt="1">
+                        <button onclick="toggleInfo('info1', 'img_1')">Показать/Скрыть полную информацию</button>
+                        <p id="info1" style="display: none;">Устали от городского шума, хотите провести праздник за городом в живописной локации? Заказывайте место в локации «Черная жемчужина». Здесь вас и ваших детей ждет настоящая пиратская шхуна с настоящими пиратами! Заказ от 25 до 30 человек: Скидка 40% на аренду при заказе в будний день. Заказ от 31 до 50 человек: Скидка 55% на аренду при заказе в будний день. Купон действует в будние дни при наличии свободных мест.</p>
+                    </div>
+                    
+                  </div>
+                  <div class="midle">
+                    <div class="imgontxt2">
+                        <h2>Скидка до 51%. Уютное место для организации праздников «Поляна сказок»</h2>
+                        <img class="img_2" src="imgrom/promotion2.jpg" alt="2" style="height:520px;">
+                        <button onclick="toggleInfo('info2', 'img_2')">Показать/Скрыть полную информацию</button>
+                        <p id="info2" style="display: none;">Локация «Поляна сказок» расположена в живописной загородной местности на берегу чистого озера. Купон действует на следующие виды услуг: Скидка 51% для аренды зоны в локации «Поляна сказок» при условии заказа услуг аниматоров. Обязательна предварительная запись по телефону. Преимущества заказа именно этой локации: безопасность, мало людей, защита от насекомых, обустроенный тематический лагерь.</p>
+                    </div>
+                  </div>
+                <div class="botom">
+                  <div class="imgontxt3">
+                    <h2>Скидка до 25%. Закажи праздник "Под ключ"</h2>
+                    <img class="img_3" src="imgrom/promotion3.jpg" alt="3">
+                    <button onclick="toggleInfo('info3', 'img_3')">Показать/Скрыть полную информацию</button>
+                    <p id="info3" style="display: none;">При выборе локации для 15 человек и больше, а также при заказе всех дополнительных услуг можно очень неплохо сэкономить! Купон действует на следующие виды услуг: Скидка 25% для органицации комплексного праздника для группы от 25 человек. Скидка 10% для органицации комплексного праздника для группы от 15 человек. Обязательна предварительная запись по телефону.</p>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <section class="subscribe" style=" display: flex; flex-direction: column; align-items: center;">
+        <!-- Форма для подписки на акции -->
+        <div style="display: flex;flex-direction: column;">
+            <h2 style="text-align: center; color: #333;">Подписка на закрытые акции</h2>
+            <form class="subscription-form" id="subscriptionForm">
+              <label for="email">Введите ваш email:</label><br>
+              <input type="email" id="email" name="email" placeholder="email" required><br><br>
+              <button type="submit">Подписаться</button>
+            </form>
+        </div>
+        
+        
+      </section>
   <footer>
     <!-- Подвал сайта -->
     <div class="podval" id="podval">
@@ -307,7 +347,7 @@
         <img src="logocompany/2.jpeg" alt="logo2" style="width:228px;height:228px;">
       </div>
       <div class="contact" style="display:flex;">
-        <!--<h3>Телефон <float:right>+7(800)111-20-20</float:right></h3>-->
+        <h3>Телефон <float:right>+7(800)111-20-20</float:right></h3>
         <!--<h6>Home  <a href="#">http://xxxxxx</a></h6>-->
         <!--<h6>Login  <a href="#">http://xxxxxx/login</a></h6>-->
         <!--<h6>Sign up  <a href="#">http://xxxxxx/signup</a></h6>-->
@@ -316,7 +356,7 @@
         <!--<h6>Return  <a href="#">http://xxxxxx/return</a></h6>-->
         <!--<h6>Feedback <a href="#">https://xxxxxx/feedback</a></h6>-->
         <div class="buttons" style="display: flex; margin: 6px;">
-          <button class="Number">Телефон</button>
+          
           <button class="Home">Home</button>
           <button class="Login">Login</button>
           <button class="Signup">Signup</button>
