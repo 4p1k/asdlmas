@@ -4,9 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selected Zone</title>
+    <style>
+           body {
+            display: flex;
+            font-family: 'Roboto Medium', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            background-position: center;
+        }
+        #selectedZone {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            text-align: center;
+        }
+        #selectedZone img{
+            width: 650px;
+        }
+        @font-face {
+            font-family: 'Roboto-Medium';
+            src: url("fonts/Roboto-Medium.ttf");
+        }
+        p{
+            font-family: 'Roboto-Medium', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 18px;
+        }
+        button{
+            border: none;
+            background-color:#f44336 ;
+            border-radius:45em;
+            width: 130px;
+            height: 30px;
+        }
+        button:hover{
+            background-color: #cc372d;
+            border: none;
+            background-color:#f44336 ;
+            border-radius:45em;
+            width: 130px;
+            height: 30px;
+        }
+        button:hover{
+            background-color: #cc372d;
+        
+        
+            transform: scale(1.2, 1.2);
+            transition-duration: 250ms;
+           
+        }
+   
+
+        .Шатер:hover,
+        .Летний-домик:hover,
+        .Беседка:hover,
+        .Игровая-комната:hover,
+        .Спортивная-площадка:hover,
+        .Бассейн-с-зоной-отдыха-и-летним-домиком:hover,
+        .Игровая-площадка:hover{
+            transform: scale(1.1);
+            transition-duration: 250ms;
+            margin:50px;
+           ;
+        }
+        .Шатер:not(:hover),
+        .Летний-домик:not(:hover),
+        .Беседка:not(:hover),
+        .Игровая-комната:not(:hover),
+        .Спортивная-площадка:not(:hover),
+        .Бассейн-с-зоной-отдыха-и-летним-домиком:not(:hover),
+        .Игровая-площадка:not(:hover){
+            
+            transition: transform 0.25s ease-in-out;
+        }
+        
+    </style>
 </head>
 <body>
      <div id="selectedZone">
+        
      </div>
 
     <script type="text/javascript">
@@ -26,19 +109,19 @@ const peopleCount = localStorage.getItem('people');
         window.onload = function(){
             if (region === 'Красноярский край' && name === 'Парк-отель Чайка') {
                 displaySelectedZones([
-                    { type: "Шатер", quantity: 2, capacity: 50, price: 5000, image: "images/plan/1.jpg" },
-                    { type: "Летний домик", quantity: 5, capacity: 10, price: 3000, image: "images/plan/2.jpg" },
-                    { type: "Беседка", quantity: 10, capacity: 15, price: 2000, image: "images/plan/3.jpeg" },
-                    { type: "Игровая комната", quantity: 1, capacity: 10, price: "300 р/час за 1 посетителя", image: "images/plan/4.jpg" },
-                    { type: "Спортивная площадка", quantity: 1, capacity: 15, price: "200 р/час за 1 посетителя", image: "images/plan/5.jpg" }
+                    { type: "Шатер", quantity: 2, capacity: 50, price: 5000, image: "locations/plan/1.jpg" },
+                    { type: "Летний-домик", quantity: 5, capacity: 10, price: 3000, image: "locations/plan/2.jpg" },
+                    { type: "Беседка", quantity: 10, capacity: 15, price: 2000, image: "locations/plan/3.jpeg" },
+                    { type: "Игровая-комната", quantity: 1, capacity: 10, price: "300 р/час за 1 посетителя", image: "locations/plan/4.jpg" },
+                    { type: "Спортивная-площадка", quantity: 1, capacity: 15, price: "200 р/час за 1 посетителя", image: "locations/plan/5.jpg" }
                 ]);
             } else if (region === 'Алтайский край' && name === 'Туристическая база Озеро Красилово') {
                 displaySelectedZones([
-                    { type: "Шатер", quantity: 1, capacity: 50, price: 7000, image: "images/plan/6.jpg" },
-                    { type: "Летний домик", quantity: 10, capacity: 15, price: 4000, image: "images/plan/7.jpg" },
-                    { type: "Беседка", quantity: 10, capacity: 15, price: 2000, image: "images/plan/8.jpg" },
-                    { type: "Бассейн с зоной отдыха и летним домиком", quantity: 1, capacity: 15, price: 20000, image: "images/plan/9.jpg"  },
-                    { type: "Игровая площадка", quantity: 1, capacity: 10, price: "300 р/час за 1 посетителя", image: "images/plan/10.png" }
+                    { type: "Шатер", quantity: 1, capacity: 50, price: 7000, image: "locations/plan/6.jpg" },
+                    { type: "Летний-домик", quantity: 10, capacity: 15, price: 4000, image: "locations/plan/7.jpg" },
+                    { type: "Беседка", quantity: 10, capacity: 15, price: 2000, image: "locations/plan/8.jpg" },
+                    { type: "Бассейн-с-зоной-отдыха-и-летним-домиком", quantity: 1, capacity: 15, price: 20000, image: "locations/plan/9.jpg"  },
+                    { type: "Игровая-площадка", quantity: 1, capacity: 10, price: "300 р/час за 1 посетителя", image: "locations/plan/10.png" }
                 ]);
             } else {
                 // Добавьте условия для других локаций, если необходимо
@@ -48,24 +131,26 @@ const peopleCount = localStorage.getItem('people');
 
         // Функция для отображения информации о выбранных зонах
         function displaySelectedZones(zones) {
-            selectedZoneElement.innerHTML = '<h2>Выбранные зоны:</h2>';
-            for (var i = 0; i < zones.length; i++) {
-                var zone = zones[i];
-                let contentDiv = document.createElement('div');
-                contentDiv.className = zone.type; 
-                
-                selectedZoneElement.innerHTML += '<h3>Тип: ' + zone.type + '</h3>';
-                // Добавление изображения и кнопки "Забронировать"
-                selectedZoneElement.innerHTML += '<img src="' + zone.image + '" alt="' + zone.type + '" style="width: 200px;">';
-                selectedZoneElement.innerHTML += '<p>Количество: ' + zone.quantity + ' шт.</p>';
-                selectedZoneElement.innerHTML += '<p>Вместимость: до ' + zone.capacity + ' чел</p>';
-                selectedZoneElement.innerHTML += '<p>Стоимость: ' + zone.price + '</p>';
-                // Добавление кнопки "Забронировать" с переходом на страницу бронирования
-                selectedZoneElement.innerHTML += '<button onclick="redirectToBooking(\'' + zone.type + '\', ' + zone.price + ', \'' + zone.image + '\')">Забронировать</button>';
-                
-                
-            }
-        }
+  selectedZoneElement.innerHTML = '<h2>Выбранные зоны:</h2>';
+  let itemCon = document.createElement('div');
+  itemCon.className = 'ContentItem';
+  for (var i = 0; i < zones.length; i++) {
+    var zone = zones[i];
+    let contentDiv = document.createElement('div');
+    contentDiv.className = zone.type;
+    contentDiv.innerHTML += '<h3>Тип: ' + zone.type + '</h3>';
+    // Добавление изображения
+    contentDiv.innerHTML += '<img src="' + zone.image + '" alt="' + zone.type + '">';
+    contentDiv.innerHTML += '<p>Количество: ' + zone.quantity + ' шт.</p>';
+    contentDiv.innerHTML += '<p>Вместимость: до ' + zone.capacity + ' чел</p>';
+    contentDiv.innerHTML += '<p>Стоимость: ' + zone.price + '</p>';
+    // Добавление кнопки "Забронировать" с переходом на страницу бронирования
+    contentDiv.innerHTML += '<button onclick="redirectToBooking(\'' + zone.type + '\', ' + zone.price + ', \'' + zone.image + '\')">Забронировать</button>';
+    selectedZoneElement.appendChild(contentDiv);
+    selectedZoneElement.appendChild(itemCon);
+    itemCon.appendChild(contentDiv);
+  }
+}
 
         // Функция для перехода на страницу бронирования с параметрами зоны
          window.redirectToBooking = function(type, price, image, region, name, selectedDate, peopleCount) {
