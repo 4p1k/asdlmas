@@ -7,35 +7,41 @@
     <style>
         /* Стили для локаций в Красноярском крае */
         body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  margin: 0;
-  padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .Красноярскийкрай, .Алтайскийкрай {
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        
+        
+    }
   
-}
-        .Красноярскийкрай, .Алтайскийкрай {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-}
 
 button {
-  background-color: lightgrey;
+  background-color: #f44336;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  margin: 3px;
 }
-     
+    button:hover {
+        background-color: #cc372d;
+    }
         .Красноярскийкрай-hidden {
             visibility: hidden;
-            
+            position: absolute;
         }
 
         
         .Алтайскийкрай-hidden {
             visibility: hidden;
+            position: absolute;
         }
         #locations {
             display: flex;
