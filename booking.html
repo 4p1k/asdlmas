@@ -4,58 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
+    <style>
+      body{
+        background-image: url("people/4.jpg");
+        background-size: cover;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+      }
+        @font-face {
+        font-family: 'Roboto Medium';
+        src: url('fonts/Roboto-Medium.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        }
+        #bookingInfo{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 600px;
+            position: (0 0);
+        }
+        h2 ,h3 ,p{
+            font-family: 'Roboto Medium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+        }
+        p{
+            color: rgb(0, 0, 0);
+        }
+        button{
+            margin-top: 10px;
+            border: none;
+            width: 40%;
+            height: 40px;
+            background-color: #f44336;
+            border-radius: 45em;
+        }
+        button:hover{
+            background-color: crimson;
+        }
+        
+    </style>
 </head>
 <body>
     <div id="bookingInfo"></div>
     
 
+    </div>
+   
+
     <script type="text/javascript">
-//        var bookingInfoElement = document.getElementById('bookingInfo');
+let bookingInfoElement = document.getElementById('bookingInfo');
+ 
+         // Функция для отображения информации о бронировании
+         // В файле booking.html
 
+ //Получаем значения из localStorage
+const bookingType = localStorage.getItem('bookingType');
+const bookingPrice = localStorage.getItem('bookingPrice');
+const bookingImage = localStorage.getItem('bookingImage');
+const bookingRegion = localStorage.getItem('region');
+const bookingName = localStorage.getItem('region');
+const bookingDate = localStorage.getItem('date');
+const bookingPeopleCount = localStorage.getItem('people');
 
-        // Функция для отображения информации о бронировании
-        // В файле booking.html
+ //Выводим значения в консоль для проверки
+console.log('Booking Type:', bookingType);
+console.log('Booking Price:', bookingPrice);
+console.log('Booking Image:', bookingImage);
+console.log('Booking Region:', bookingRegion);
+console.log('Booking Name:', bookingName);
+console.log('Booking Date:', bookingDate);
+console.log('Booking People Count:', bookingPeopleCount);
 
-// Получаем значения из localStorage
-//const bookingType = localStorage.getItem('bookingType');
-//const bookingPrice = localStorage.getItem('region');
-//const bookingImage = localStorage.getItem('bookingImage');
-//const bookingRegion = localStorage.getItem('region');
-//const bookingName = localStorage.getItem('region');
-//const bookingDate = localStorage.getItem('date');
-//const bookingPeopleCount = localStorage.getItem('people');
-//
-//// Выводим значения в консоль для проверки
-//console.log('Booking Type:', bookingType);
-//console.log('Booking Price:', bookingPrice);
-//console.log('Booking Image:', bookingImage);
-//console.log('Booking Region:', bookingRegion);
-//console.log('Booking Name:', bookingName);
-//console.log('Booking Date:', bookingDate);
-//console.log('Booking People Count:', bookingPeopleCount);
-//
-//            
-//            if (bookingType && bookingPrice && bookingImage && bookingRegion && bookingName && bookingDate && bookingPeopleCount) {
-//                bookingInfoElement.innerHTML = '<h2>Информация для бронирования:</h2>';
-//                bookingInfoElement.innerHTML += '<h3>Регион: ' + bookingRegion + '</h3>';
-//                bookingInfoElement.innerHTML += '<h3>Адрес локации: ' + bookingName + '</h3>';
-//                bookingInfoElement.innerHTML += '<h3>Дата мероприятия: ' + bookingDate + '</h3>';
-//                bookingInfoElement.innerHTML += '<h3>Количество человек: ' + bookingPeopleCount + '</h3>';
-//                bookingInfoElement.innerHTML += '<h3>Стоимость: ' + bookingPrice + '</h3>';
-//                bookingInfoElement.innerHTML += '<img src="' + bookingImage + '" alt="' + bookingType + '" style="width: 200px;">';
-//                bookingInfoElement.innerHTML += '<form id="bookingForm">';
-//                bookingInfoElement.innerHTML += '   <!-- Добавьте остальные поля для бронирования, как в вашем предыдущем коде -->';
-//                bookingInfoElement.innerHTML += '   <button type="button" onclick="calculateTotalCost()">Рассчитать стоимость</button>';
-//                bookingInfoElement.innerHTML += '   <button type="button" onclick="submitBooking()">Оформить бронирование</button>';
-//                bookingInfoElement.innerHTML += '</form>';
-//            } else {
-//                bookingInfoElement.innerHTML = 'Информация для бронирования не найдена.';
-//            }
-//        
-//
-//        
-//
-//        // Остальной код для calculateTotalCost, submitBooking и прочего...
-//    </script>
+            
+            if (bookingType && bookingPrice && bookingImage && bookingRegion && bookingName && bookingDate && bookingPeopleCount) {
+                let contentINFO = document.createElement('div');
+                contentINFO.classList ='ContentMain';
+                
+                bookingInfoElement.innerHTML = '<h2>Информация для бронирования:</h2>';
+                bookingInfoElement.innerHTML += '<h3>Регион: ' + bookingRegion + '</h3>';
+                bookingInfoElement.innerHTML += '<h3>Адрес локации: ' + bookingName + '</h3>';
+                bookingInfoElement.innerHTML += '<h3>Дата мероприятия: ' + bookingDate + '</h3>';
+                bookingInfoElement.innerHTML += '<h3>Количество человек: ' + bookingPeopleCount + '</h3>';
+                bookingInfoElement.innerHTML += '<h3>Стоимость: ' + bookingPrice + '</h3>';
+                bookingInfoElement.innerHTML += '<img src="' + bookingImage + '" alt="' + bookingType + '" style="width: 200px;">';
+                bookingInfoElement.innerHTML += '<form id="bookingForm">';
+                bookingInfoElement.innerHTML += '<p id="TotalCost"></p>';
+                
+                contentINFO.innerHTML += '<p>Дополниельные функции</p>';
+                contentINFO.innerHTML += '<input type="checkbox" name="food" id="food" >';
+                contentINFO.innerHTML += '<label ="food">Организация питания + 500  р/чел</label>';
+                contentINFO.innerHTML += '<br>';
+                contentINFO.innerHTML += '<input type="checkbox" name="animator" id="animator">';
+                contentINFO.innerHTML += '<label for="animator">Услуги аниматоров + 5000 р/сутки</label>';
+                contentINFO.innerHTML += '<br>';
+                contentINFO.innerHTML += '<input type="checkbox" name="master" id="master">';
+                contentINFO.innerHTML += '<label for="master">Услуги ведущего + 500  р/час</label>';
+                contentINFO.innerHTML += '<br>';
+                
+                contentINFO.innerHTML += '<input type="checkbox" name="kidTaxi" id="kidTaxi">';
+                contentINFO.innerHTML += '<label for="kidTaxi">Услуги детского такси + 50 р + 10 р за каждый км</label>';
+                contentINFO.innerHTML += '<br>';
+
+                contentINFO.innerHTML += '   <button type="button" onclick="submitBooking()">Оформить бронирование</button>';
+                contentINFO.innerHTML += '   <button type="button" onclick="calculateTotalCost()">Рассчитать стоимость</button>';
+                bookingInfoElement.innerHTML += '</form>';
+                bookingInfoElement.appendChild(contentINFO);
+            } else {
+                bookingInfoElement.innerHTML = 'Информация для бронирования не найдена.';
+            }
+        // Остальной код для calculateTotalCost, submitBooking и прочего...
+        function calculateTotalCost(){
+            let Totalcost = document.getElementById('TotalCost');
+            let FoodChk = document.getElementById('food');
+            let animatorChk = document.getElementById('animator');
+            let masterChk = document.getElementById('master');
+            let TaxiChk = document.getElementById('kidTaxi');
+            ServiceCost = 0;
+            
+            if(FoodChk.checked){
+                ServiceCost +=(parseInt(bookingPeopleCount)*500)
+                console.log("На питание с человека"+ServiceCost+parseInt(bookingPrice));
+            }
+            if(animatorChk.checked){
+                ServiceCost +=5000;
+                console.log("За аниматора"+ServiceCost+parseInt(bookingPrice))
+            }
+            if (masterChk.checked) {
+                ServiceCost += 500;
+            }
+            if (TaxiChk.checked) {
+                ServiceCost += 50;
+            }
+            //Totalcost.innerHTML = "Вместе с дополнительными функциями выйдет : "+ ServiceCost+ parseInt(bookingPrice);
+            if(ServiceCost === 0){
+                Totalcost.innerHTML = "Выходит " +bookingPrice; 
+                       }
+            if(ServiceCost > 1){
+                Totalcost.innerHTML = "Выходит " + (parseInt(ServiceCost) + parseInt(bookingPrice));
+
+            }
+        }
+        function submitBooking() {
+            alert("Вы забронировали");
+            document.location.href = 'index.html';
+        }
+    
+    </script>
 </body>
 </html>
